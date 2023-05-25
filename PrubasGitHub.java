@@ -6,10 +6,7 @@ public class PrubasGitHub {
 
         for(int i = 0 ; i <name.length();i++){
             System.out.println(name.charAt(i));
-            //hola buenos dias
             int age = 18;
-            //ya ? c
-
         }
     }
 }
