@@ -4,8 +4,8 @@ public class PrubasGitHub {
         String name = "Daniel";
         System.out.println("hello "+name);
 
-        for(int i = 0 ; i <= name.lenght;i++){
-            System.out.println(name.chartArt(i))
+        for(int i = 0 ; i <name.length();i++){
+            System.out.println(name.charAt(i));
         }
     }
 }
