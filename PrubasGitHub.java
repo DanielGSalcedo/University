@@ -8,6 +8,8 @@ public class PrubasGitHub {
             System.out.println(name.charAt(i));
             //hola buenos dias
             int age = 18;
+            //ya ? c
+
         }
     }
 }
