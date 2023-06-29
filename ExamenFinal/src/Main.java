@@ -14,10 +14,13 @@ public class Main {
          programa:
         do {
             System.out.println("-----------------------------------------------------------");
-            String opciones = (vueltas == 0)? "":"ingrese 2 para ver definitivas \ningrese 3 para buscar notas \ningrese 4 para salir";
+            String opciones = (vueltas == 0)? "":"ingrese 2 para ver definitivas \ningrese 3 para buscar notas \ningrese 4 para visualizar la tabla \ningrese 5 para salir";
             System.out.printf("ingrese 1 para registrar notas %n%s%n",opciones);
             int option = scan.nextInt();
             System.out.println("-----------------------------------------------------------");
+            if(vueltas == 0 && option >1){
+                continue;
+            }
 
             switch (option) {
                 case 1 -> {
@@ -43,13 +46,14 @@ public class Main {
                             } while (true);
                         }
                     }
-                }
-                case 2 -> {
-                    double defmay =Double.MIN_VALUE, defmin = Double.MAX_VALUE;
                     for (int i = 0; i < definitivas.length; i++) {
                         double previo3 = (calificaciones[i][2] + calificaciones[i][3] + calificaciones[i][4] + calificaciones[i][5]) / 4;
                         definitivas[i] = (((calificaciones[i][0] + calificaciones[i][1] + previo3) / 3) * 0.7) + (calificaciones[i][6] * 0.3);
                     }
+                }
+                case 2 -> {
+                    double defmay =Double.MIN_VALUE, defmin = Double.MAX_VALUE;
+
                     for (double i : definitivas) {
                         if (i > defmay) {
                             defmay = i;
@@ -79,6 +83,15 @@ public class Main {
                     System.out.println("-----------------------------------------------------------");
                 }
                 case 4 -> {
+                    System.out.println("--------------------------------------------------------------------------------------------------------------");
+                    System.out.printf("            | Previo1 | Previo2 | Quiz1 | Quiz2 | TallerIndividual | TallerGrupal | ExamenFinal | definitiva | %n");
+                    for(int i = 0; i < 5;i++){
+                        System.out.printf("| Materia %d |   %.1f   |   %.1f   |  %.1f  |  %.1f  |       %.1f        |     %.1f      |     %.1f     |     %.1f    |%n"
+                        ,i+1,calificaciones[i][0],calificaciones[i][1],calificaciones[i][2],calificaciones[i][3],calificaciones[i][4],calificaciones[i][5],calificaciones[i][6],definitivas[i]);
+                        System.out.println("--------------------------------------------------------------------------------------------------------------");
+                    }
+                }
+                case 5 -> {
                     break programa;
                 }
             }
